@@ -1,11 +1,11 @@
-package com.firefinch.vcfcontact.Fragments.VFile;
+package com.firefinch.vcfcontact.fragments.VFile;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.firefinch.vcfcontact.Fragments.VFile.dummy.DummyContent.DummyItem;
+import com.firefinch.vcfcontact.fragments.VFile.dummy.DummyContent.DummyItem;
 import com.firefinch.vcfcontact.R;
 
 import java.util.List;

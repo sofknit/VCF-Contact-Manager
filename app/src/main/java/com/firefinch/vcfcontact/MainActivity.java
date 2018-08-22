@@ -2,14 +2,11 @@ package com.firefinch.vcfcontact;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.GridLayout;
-import android.widget.LinearLayout;
 
-import com.firefinch.vcfcontact.Fragments.VFile.VFileFragment;
-import com.firefinch.vcfcontact.Fragments.VFile.dummy.DummyContent;
+import com.firefinch.vcfcontact.fragments.VFile.VFileFragment;
+import com.firefinch.vcfcontact.fragments.VFile.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity implements VFileFragment.OnVFileListFragmentInteractionListener {
 
@@ -24,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements VFileFragment.OnV
     }
 
     private void setupVFileFragment(ViewGroup vFileFragContainer) {
-        VFileFragment vFileFragment = VFileFragment.newInstance(1);
+        VFileFragment vFileFragment = VFileFragment.newInstance();
         getSupportFragmentManager().beginTransaction().add(vFileFragContainer.getId(), vFileFragment).commit();
     }
 

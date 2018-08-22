@@ -1,4 +1,4 @@
-package com.firefinch.vcfcontact.Fragments.VFile;
+package com.firefinch.vcfcontact.fragments.VFile;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firefinch.vcfcontact.R;
-import com.firefinch.vcfcontact.Fragments.VFile.dummy.DummyContent;
-import com.firefinch.vcfcontact.Fragments.VFile.dummy.DummyContent.DummyItem;
+import com.firefinch.vcfcontact.fragments.VFile.dummy.DummyContent;
+import com.firefinch.vcfcontact.fragments.VFile.dummy.DummyContent.DummyItem;
 
 /**
  * A fragment representing a list of Items.
@@ -43,6 +43,11 @@ public class VFileFragment extends Fragment {
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @SuppressWarnings("unused")
+    public static VFileFragment newInstance() {
+        return newInstance(1);
     }
 
     @Override
@@ -99,7 +104,7 @@ public class VFileFragment extends Fragment {
      * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
+     * >Communicating with Other fragments</a> for more information.
      */
     public interface OnVFileListFragmentInteractionListener {
         // TODO: Update argument type and name

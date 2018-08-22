@@ -1,4 +1,4 @@
-package com.firefinch.vcfcontact.Fragments.VFile.dummy;
+package com.firefinch.vcfcontact.fragments.VFile.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;
