@@ -15,6 +15,10 @@ import com.firefinch.vcfcontact.R;
 import com.firefinch.vcfcontact.Utils.Util;
 import com.firefinch.vcfcontact.fragments.VFile.dummy.DummyContent;
 import com.firefinch.vcfcontact.fragments.VFile.dummy.DummyContent.DummyItem;
+import com.firefinch.vcfcontact.models.VFile;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * A fragment representing a list of Items.
@@ -79,8 +83,12 @@ public class VFileFragment extends Fragment {
             //TODO: https://stackoverflow.com/questions/21724706/how-to-get-my-android-device-internal-download-folder-path
             //      Implement for external storage as well
             recyclerView.setAdapter(
-                    new VFileAdapter(Util.walkVFiles(Environment.getExternalStorageDirectory()), mListener)
+                    new VFileAdapter(new ArrayList<VFile>(Arrays.asList(new VFile(Environment.getExternalStorageDirectory(), "test_vcf.vcf"))), mListener)
             );
+//            For Complete Search, use this:
+//            recyclerView.setAdapter(
+//                    new VFileAdapter(Util.walkVFiles(Environment.getExternalStorageDirectory()), mListener)
+//            );
         }
         return view;
     }
