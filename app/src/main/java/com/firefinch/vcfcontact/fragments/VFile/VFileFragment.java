@@ -2,6 +2,7 @@ package com.firefinch.vcfcontact.fragments.VFile;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firefinch.vcfcontact.R;
+import com.firefinch.vcfcontact.Utils.Util;
 import com.firefinch.vcfcontact.fragments.VFile.dummy.DummyContent;
 import com.firefinch.vcfcontact.fragments.VFile.dummy.DummyContent.DummyItem;
 
@@ -73,7 +75,12 @@ public class VFileFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new VFileAdapter(DummyContent.ITEMS, mListener));
+
+            //TODO: https://stackoverflow.com/questions/21724706/how-to-get-my-android-device-internal-download-folder-path
+            //      Implement for external storage as well
+            recyclerView.setAdapter(
+                    new VFileAdapter(Util.walkVFiles(Environment.getExternalStorageDirectory()), mListener)
+            );
         }
         return view;
     }

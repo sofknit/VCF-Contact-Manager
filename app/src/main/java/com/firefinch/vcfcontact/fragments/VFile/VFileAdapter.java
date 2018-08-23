@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.firefinch.vcfcontact.fragments.VFile.dummy.DummyContent.DummyItem;
 import com.firefinch.vcfcontact.R;
+import com.firefinch.vcfcontact.models.VFile;
 
 import java.util.List;
 
@@ -17,11 +18,11 @@ import java.util.List;
  */
 public class VFileAdapter extends RecyclerView.Adapter<VFileAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<VFile> mVFiles;
     private final VFileFragment.OnVFileListFragmentInteractionListener mListener;
 
-    public VFileAdapter(List<DummyItem> items, VFileFragment.OnVFileListFragmentInteractionListener listener) {
-        mValues = items;
+    public VFileAdapter(List<VFile> items, VFileFragment.OnVFileListFragmentInteractionListener listener) {
+        mVFiles = items;
         mListener = listener;
     }
 
@@ -34,25 +35,27 @@ public class VFileAdapter extends RecyclerView.Adapter<VFileAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+//        holder.mItem = mValues.get(position);
+//        holder.mIdView.setText(mValues.get(position).id);
+//        holder.mContentView.setText(mValues.get(position).content);
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
-                }
-            }
-        });
+        holder.mIdView.setText(Integer.toString(position + 1));
+        holder.mContentView.setText(mVFiles.get(position).getName());
+//        holder.mView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (null != mListener) {
+//                    // Notify the active callbacks interface (the activity, if the
+//                    // fragment is attached to one) that an item has been selected.
+//                    mListener.onListFragmentInteraction(holder.mItem);
+//                }
+//            }
+//        });
     }
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return mVFiles.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
